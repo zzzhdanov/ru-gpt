@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Пример страницы с использованием Python</title>
+    <script src="eel.js"></script>
+</head>
+<body>
+    <h1>Пример страницы с использованием Python</h1>
+    
+    <form id="responseForm">
+        <label for="inputText">Введите текст:</label>
+        <input type="text" id="inputText" name="inputText">
+        <button id = "gen" type="button" onclick="generateResponse()">Отправить</button>
+    </form>
+    
+    <div id="outputDiv">
+        <h2>Ответ:</h2>
+        <p id="outputText"></p>
+    </div>
+    <script type="text/javascript">
+        async function generateResponse() {
+            let inputText = document.getElementById('inputText').value;
+            let res = await eel.generate_response(inputText)();
+            document.getElementById('outputText').innerText = res;
+        }
+    </script>
+</body>
+</html>
